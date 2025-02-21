@@ -7,15 +7,19 @@
 
 import SwiftUI
 
+struct Constants {
+    static let spacing05: CGFloat = 4
+    static let BackgroundDefault: Color = .white
+    static let radius1: CGFloat = 8
+    static let primaryMain: Color = Color(red: 0.96, green: 0.76, blue: 0.29)
+    static let spacing1: CGFloat = 8
+    static let BackgroundNeutral: Color = Color(
+        red: 0.96, green: 0.96, blue: 0.97)
+}
+
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        DockView()
     }
 }
 
