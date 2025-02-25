@@ -23,12 +23,11 @@ struct OrderListView: View {
                         CardOrderView(orderCode: String("SPF - \(item)"))
                     }
                 }.padding(.horizontal).clipped()
-
             }.ignoresSafeArea().background(Constants.BackgroundNeutral)
         }
     }
 }
 
-#Preview {
-    OrderListView()
-}
+//#Preview {
+//    OrderListView()
+//}

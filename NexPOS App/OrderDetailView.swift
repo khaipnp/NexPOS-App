@@ -22,6 +22,9 @@ struct OrderDetailView: View {
     @State var itemQuantity: Int = 1
     @State var note: String = ""
     @State var options: [String] = ["It duong", "Khong da"]
+    @State var isDelivery: Bool = true
+    @State var deliveryName: String = "Phan Van Hon"
+    @State var deliveryPhone: String = "0909552099"
     var body: some View {
         NavigationStack {
             VStack {
@@ -38,27 +41,44 @@ struct OrderDetailView: View {
                             Text(finishedTime)
                         }
                     }
-                }.padding().background(.white)
+                }.padding().background(.white).clipShape(.rect(cornerRadius: Constants.radius1))
                 
                 VStack(alignment: .leading) {
-                    Text("Đơn hàng").font(.title3)
+                    Text("Đơn hàng").font(.headline)
                     HStack {
                         VStack {
                             Text("\(itemQuantity)x Nước ép thơm đặc biệt")
-                            if !options.isEmpty {
-                                ForEach(options) { ops in
-                                    Text(ops)
-                                }
-                            }
                             if !note.isEmpty {
                                 Text("Ghi chú: \(note)")
                             }
                         }
                         
                     }
+                }.padding().background(.white)
+                
+                if isDelivery {
+                    VStack(alignment: .leading) {
+                        Text("Giao hàng").font(.headline)
+                        HStack {
+                            Image(systemName: "truck.box.badge.clock")
+                            VStack {
+                                HStack {
+                                    Text("\(deliveryName) -")
+                                    Text(deliveryPhone).foregroundStyle(.secondary)
+                                }
+                                
+                                if !note.isEmpty {
+                                    Text("Ghi chú: \(note)")
+                                }
+                            }
+                            Spacer()
+                        }
+                    }.padding().background(.white)
                 }
-            }
-        }.navigationBarTitleDisplayMode(.large).background(Constants.BackgroundNeutral)
+                
+                Spacer()
+            }.padding().background(Constants.BackgroundNeutral)
+        }
     }
 }
 
